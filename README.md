@@ -1,2 +1,2 @@
 # Training
-A repository of snippets off various data structures and algorithms.
+<b>A repository of snippets of various data structures and algorithms.</b>
