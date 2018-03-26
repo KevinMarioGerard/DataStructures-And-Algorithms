@@ -23,19 +23,28 @@ class Stack{
     }
     return false;
   }
-  static void reverse(Stack s, int x){
+  static void insert(Stack s, int tmp){
     if(s.isEmpty()){
-      s.push(x);
-      return;
+      s.push(tmp);
     }
-    int tmp = s.pop();
-    System.out.println(Arrays.toString(s.arr));
-    reverse(s, tmp);
-    s.push(tmp);
+    else{
+      int x = s.pop();
+      insert(s, tmp);
+      s.push(x);
+    }
   }
+  static void reverse(Stack s){
+    if(!s.isEmpty()){
+      int tmp = s.pop();
+      reverse(s);
+      System.out.println(tmp);
+      insert(s, tmp);
+    }
+  }
+
   public static void main(String[] args){
     Stack s = new Stack();
-    s.push(0);
+    //s.push(0);
     s.push(1);
     s.push(2);
     s.push(3);
@@ -46,7 +55,7 @@ class Stack{
     s.push(8);
     s.push(9);
     System.out.println(Arrays.toString(s.arr));
-    reverse(s, s.pop());
+    reverse(s);
     System.out.println(Arrays.toString(s.arr));
   }
 }
